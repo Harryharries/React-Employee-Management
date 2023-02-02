@@ -2,7 +2,7 @@ import { useAppSelector } from 'app/hooks';
 import { members } from 'api/api';
 import { absences } from 'api/api';
 import { AbsencesTable } from 'shared/components/absencesTable';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setAabsences, setMembers } from './employeeSlice';
 import { MemberRespones } from 'shared/model/membersRespones';

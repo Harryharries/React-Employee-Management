@@ -5,22 +5,30 @@ import { useEffect, useState } from "react";
 import { EmployeeState } from "shared/model/employeeState";
 import { Member } from "shared/model/member";
 import { Absence } from "shared/model/absence";
+import { AbsenceDto } from "shared/model/absenceDTO";
 
 
 export const AbsencesTable = (props: EmployeeState) => {
     const [membersData, setMembersData] = useState<Member[]>([])
-    const [absencesData, setAbsencesData] = useState<Absence[]>([])    
+    const [absencesData, setAbsencesData] = useState<Absence[]>([])
+    const [displayData, setdisplayData] = useState<AbsenceDto[]>([])       
     
     useEffect(() => {
         setMembersData(props.members);
         setAbsencesData(props.absences);
-    }, [props])
+
+        absencesData.forEach((e: Absence) => {
+            const absencesMember: Member | undefined = membersData.find((m: Member)=>m.userId === e.userId)
+            const newAbsenceDto: AbsenceDto = {...e, name: absencesMember?.name}
+            setdisplayData((oldDisplayArray : AbsenceDto[])=>[...oldDisplayArray, newAbsenceDto])
+        })
+    }, [absencesData, membersData, props])
     
     return (
         <div>
             <div>
-                <DataTable value={absencesData} responsiveLayout="scroll">
-                    <Column field="type" header="Type"></Column>
+                <DataTable value={displayData} responsiveLayout="scroll">
+                    <Column field="name" header="Name"></Column>
                     <Column field="memberNote" header="MemberNote"></Column>
                     <Column field="startDate" header="StartDate"></Column>
                     <Column field="endDate" header="EndDate"></Column>
