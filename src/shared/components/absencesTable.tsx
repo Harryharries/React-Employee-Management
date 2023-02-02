@@ -104,7 +104,6 @@ export const AbsencesTable = (props: EmployeeState) => {
                     <Column field="admitterNote" style={{ width: '22vw' }} body={admitterNoteBodyTemplate} header="AdmitterNote"></Column>
                 </DataTable>
             </div>
-
         </div>
     )
 }
