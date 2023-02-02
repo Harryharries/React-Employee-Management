@@ -1,5 +1,6 @@
 export interface AbsenceDto {
     name?: string;
+    status?: string;
     admitterId?: string;
     admitterNote?: string;
     confirmedAt?: string;

@@ -1,6 +1,7 @@
 import { DataTable } from "primereact/datatable"
 import { Column } from "primereact/column";
 import "primereact/resources/themes/lara-light-blue/theme.css"
+import { FilterMatchMode, FilterOperator } from 'primereact/api';
 import { useEffect, useState } from "react";
 import { EmployeeState } from "shared/model/employeeState";
 import { Member } from "shared/model/member";
@@ -19,7 +20,8 @@ export const AbsencesTable = (props: EmployeeState) => {
 
         absencesData.forEach((e: Absence) => {
             const absencesMember: Member | undefined = membersData.find((m: Member)=>m.userId === e.userId)
-            const newAbsenceDto: AbsenceDto = {...e, name: absencesMember?.name}
+            const newStatus: string = e.rejectedAt ? 'Rejected' : e.confirmedAt? 'Confirmed' : 'Requested'
+            const newAbsenceDto: AbsenceDto = {...e, name: absencesMember?.name, status: newStatus}
             setdisplayData((oldDisplayArray : AbsenceDto[])=>[...oldDisplayArray, newAbsenceDto])
         })
     }, [absencesData, membersData, props])
@@ -29,10 +31,11 @@ export const AbsencesTable = (props: EmployeeState) => {
             <div>
                 <DataTable value={displayData} responsiveLayout="scroll">
                     <Column field="name" header="Name"></Column>
-                    <Column field="memberNote" header="MemberNote"></Column>
+                    <Column field="type" header="Type"></Column>
                     <Column field="startDate" header="StartDate"></Column>
                     <Column field="endDate" header="EndDate"></Column>
-                    <Column field="type" header="Type"></Column>
+                    <Column field="memberNote" header="MemberNote"></Column>
+                    <Column field="status" header="Status"></Column>
                     <Column field="admitterNote" header="AdmitterNote"></Column>
                 </DataTable>
             </div>

@@ -11,7 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-td .p-column-title{
-  display: none;
-}
