@@ -13,6 +13,7 @@ import { Absence } from "shared/model/absence";
 import { AbsenceDto } from "shared/model/absenceDTO";
 import { Button } from 'primereact/button';
 import ICalendarLink from "react-icalendar-link";
+import { DownloadICal } from "shared/model/downloadICal";
 
 export const AbsencesTable = (props: EmployeeState) => {
     const [membersData, setMembersData] = useState<Member[]>([])
@@ -59,7 +60,7 @@ export const AbsencesTable = (props: EmployeeState) => {
             description:  rowData.memberNote,
             startTime: rowData.startDate,
             endTime: rowData.endDate,
-          };
+          } as DownloadICal;
 
         return (
             <div>
