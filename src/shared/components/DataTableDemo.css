@@ -1,4 +1,8 @@
-
+.datatable-filter-demo {
+    padding-top: 20px;
+    min-width: 98vw;
+    min-height: 90vw;
+}
 .datatable-filter-demo .p-paginator .p-paginator-current {
     margin-left: auto;
 }
@@ -15,21 +19,45 @@
 .datatable-filter-demo .p-datepicker td {
     font-weight: 400;
 }
-.datatable-filter-demo .p-datatable.p-datatable-customers .p-datatable-header {
+.datatable-filter-demo .p-datatable.p-datatable-employee .p-datatable-header {
     padding: 1rem;
     text-align: left;
     font-size: 1.5rem;
 }
-.datatable-filter-demo .p-datatable.p-datatable-customers .p-paginator {
+.datatable-filter-demo .p-datatable.p-datatable-employee .p-paginator {
     padding: 1rem;
 }
-.datatable-filter-demo .p-datatable.p-datatable-customers .p-datatable-thead > tr > th {
+.datatable-filter-demo .p-datatable.p-datatable-employee .p-datatable-thead > tr > th {
     text-align: left;
 }
-.datatable-filter-demo .p-datatable.p-datatable-customers .p-datatable-tbody > tr > td {
+.datatable-filter-demo .p-datatable.p-datatable-employee .p-datatable-tbody > tr > td {
     cursor: auto;
 }
-.datatable-filter-demo .p-datatable.p-datatable-customers .p-dropdown-label:not(.p-placeholder) {
+.datatable-filter-demo .p-datatable.p-datatable-employee .p-dropdown-label:not(.p-placeholder) {
     text-transform: uppercase;
 }
-                
+
+.customer-badge {
+    border-radius: 2px;
+    padding: .25em .5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: .3px;
+}
+
+
+.customer-badge.status-Rejected {
+    background-color: #FFCDD2;
+    color: #C63737;
+}
+
+.customer-badge.status-Confirmed {
+    background-color: #C8E6C9;
+    color: #256029;
+}
+
+.customer-badge.status-Requested {
+    background-color: #FEEDAF;
+    color: #8A5340;
+}
