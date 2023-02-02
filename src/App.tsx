@@ -1,15 +1,14 @@
-import React from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import './App.css';
-import { members } from './api/api';
+import { EmployeeManagement } from './features/employee-table/employeeManagement';
 
 
 function App() {
-  members.then(data=>console.log(data))
   return (
     <div className="App">
       <header className="App-header">
+        <EmployeeManagement></EmployeeManagement>
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
         <p>

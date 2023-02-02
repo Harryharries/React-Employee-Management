@@ -1,7 +1,7 @@
 import { useAppSelector } from 'app/hooks';
 import { members } from 'api/api';
 import { absences } from 'api/api';
-import { EmployeeTable } from 'shared/components/employeeTable';
+import { AbsencesTable } from 'shared/components/absencesTable';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setAabsences, setMembers } from './employeeSlice';
@@ -37,7 +37,7 @@ export const EmployeeManagement = () => {
     })
     
     return (
-        <EmployeeTable absences={absencesData} members={membersData}></EmployeeTable>
+        <AbsencesTable absences={absencesData} members={membersData}></AbsencesTable>
     )
 }
 
