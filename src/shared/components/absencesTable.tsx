@@ -7,7 +7,7 @@ import { Member } from "shared/model/member";
 import { Absence } from "shared/model/absence";
 
 
-export const EmployeeTable = (props: EmployeeState) => {
+export const AbsencesTable = (props: EmployeeState) => {
     const [membersData, setMembersData] = useState<Member[]>([])
     const [absencesData, setAbsencesData] = useState<Absence[]>([])    
     
