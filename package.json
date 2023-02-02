@@ -21,7 +21,9 @@
     "react-redux": "^8.0.5",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "@culturehq/add-to-calendar": "1.1.2",
+    "react-icalendar-link": "2.0.0"
   },
   "browser": {
     "fs": false,
@@ -51,5 +53,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/file-saver": "^2.0.5"
   }
 }

@@ -1,5 +1,4 @@
 import './App.css';
-import logo from 'statics/smartcode.png'
 import { EmployeeManagement } from './features/employee-table/employeeManagement';
 
 

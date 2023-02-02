@@ -1,7 +1,6 @@
 .datatable-filter-demo {
     padding-top: 20px;
     min-width: 98vw;
-    min-height: 90vw;
 }
 .datatable-filter-demo .p-paginator .p-paginator-current {
     margin-left: auto;
@@ -19,6 +18,9 @@
 .datatable-filter-demo .p-datepicker td {
     font-weight: 400;
 }
+.datatable-filter-demo .p-datatable.p-datatable-employee{
+    height: 90vh;
+}
 .datatable-filter-demo .p-datatable.p-datatable-employee .p-datatable-header {
     padding: 1rem;
     text-align: left;
@@ -35,6 +37,10 @@
 }
 .datatable-filter-demo .p-datatable.p-datatable-employee .p-dropdown-label:not(.p-placeholder) {
     text-transform: uppercase;
+}
+
+.download {
+    max-height: 20px;
 }
 
 .customer-badge {
