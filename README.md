@@ -1,3 +1,6 @@
+Website deployed on github:
+https://harryharries.github.io/React-Employee-Management/
+
 ## Redux Absence Manager
 
 SmartCode Internet Solutions coding challenge - Frontend (React) application.
