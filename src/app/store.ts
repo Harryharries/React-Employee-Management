@@ -1,5 +1,5 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import employeeReducer from 'features/employee-table/employeeSlice';
+import employeeReducer from 'features/absence-management/employeeSlice';
 
 export const store = configureStore({
   reducer: {

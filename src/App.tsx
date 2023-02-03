@@ -1,5 +1,5 @@
 import './App.css';
-import { EmployeeManagement } from './features/employee-table/employeeManagement';
+import { EmployeeManagement } from './features/absence-management/absencesManagement';
 
 
 function App() {
