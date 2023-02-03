@@ -3,7 +3,7 @@ import employeeReducer from 'features/absence-management/employeeSlice';
 
 export const store = configureStore({
   reducer: {
-    employee: employeeReducer
+    employees: employeeReducer
   },
 });
 

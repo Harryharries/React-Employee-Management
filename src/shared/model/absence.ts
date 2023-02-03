@@ -12,4 +12,3 @@ export interface Absence {
     type?: string;
     userId: number;
   }
-  
