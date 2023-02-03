@@ -1,20 +1,22 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "app/store";
+import { Absence } from "shared/model/absence";
 import { EmployeeState } from "shared/model/employeeState";
+import { Member } from "shared/model/member";
 
 const initialState: EmployeeState = {
-    members: [],
-    absences: []
+    members: [] as Member[],
+    absences: [] as Absence[]
 }
 
 export const employeeSlice = createSlice({
     name: 'employee',
     initialState,
     reducers: {
-        addAabsence: (state, action) => {
+        addAbsence: (state, action) => {
             state.absences.push(action.payload)
         },
-        setAabsences: (state, action) => {
+        setAbsences: (state, action) => {
             state.absences = action.payload
         },
         addMember: (state, action) => {
@@ -26,18 +28,18 @@ export const employeeSlice = createSlice({
     }
 })
 
-export const { addAabsence, addMember,setAabsences, setMembers } = employeeSlice.actions;
+export const { addAbsence, addMember,setAbsences, setMembers } = employeeSlice.actions;
 export default employeeSlice.reducer;
 
 export const getTotalMembers = createSelector(
-    (state: RootState) => state.employee.members,
+    (state: RootState) => state.employees.members,
     (members) => {
         return members.length;
     }
 );
 
 export const getTotalAbsences = createSelector(
-    (state: RootState) => state.employee.absences,
+    (state: RootState) => state.employees.absences,
     (absences) => {
         return absences.length;
     }

@@ -4,14 +4,14 @@ import { absences } from 'api/api';
 import { AbsencesTable } from 'shared/components/absencesTable';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { setAabsences, setMembers } from './employeeSlice';
+import { setAbsences, setMembers } from './employeeSlice';
 import { MemberRespones } from 'shared/model/membersRespones';
 import { AbsenceRespones } from 'shared/model/absencesRespones';
 
 //Data Container for table UI, which interacts with Redux and then passes/receive the necessary data to table UI
 export const EmployeeManagement = () => {
-    const absencesData = useAppSelector((state) => state.employee.absences);
-    const membersData = useAppSelector((state) => state.employee.members);
+    const absencesData = useAppSelector((state) => state.employees.absences);
+    const membersData = useAppSelector((state) => state.employees.members);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -24,7 +24,7 @@ export const EmployeeManagement = () => {
       }).catch(alert)
       absences.then((res: AbsenceRespones) => {
         if (res.message === 'Success') {
-            dispatch(setAabsences(res.payload)) 
+            dispatch(setAbsences(res.payload)) 
         }else{
             throw new Error("fail to fetch absences")
         }
