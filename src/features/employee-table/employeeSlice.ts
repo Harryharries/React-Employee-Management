@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSelector, createSlice } from "@reduxjs/toolkit";
+import { RootState } from "app/store";
 import { EmployeeState } from "shared/model/employeeState";
 
 const initialState: EmployeeState = {
@@ -6,7 +7,7 @@ const initialState: EmployeeState = {
     absences: []
 }
 
-export const counterSlice = createSlice({
+export const employeeSlice = createSlice({
     name: 'employee',
     initialState,
     reducers: {
@@ -25,5 +26,19 @@ export const counterSlice = createSlice({
     }
 })
 
-export const { addAabsence, addMember,setAabsences, setMembers } = counterSlice.actions;
-export default counterSlice.reducer;
+export const { addAabsence, addMember,setAabsences, setMembers } = employeeSlice.actions;
+export default employeeSlice.reducer;
+
+export const getTotalMembers = createSelector(
+    (state: RootState) => state.employee.members,
+    (members) => {
+        return members.length;
+    }
+);
+
+export const getTotalAbsences = createSelector(
+    (state: RootState) => state.employee.absences,
+    (absences) => {
+        return absences.length;
+    }
+);

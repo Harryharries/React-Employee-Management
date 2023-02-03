@@ -15,7 +15,6 @@ export const EmployeeManagement = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-      console.log('dispatch')
       members.then((res: MemberRespones) => {
         if (res.message === 'Success') {
             dispatch(setMembers(res.payload)) 
@@ -30,10 +29,6 @@ export const EmployeeManagement = () => {
             throw new Error("fail to fetch absences")
         }
       }).catch(alert)
-      
-      return () => {
-        console.log('clean')
-      }
     })
     
     return (

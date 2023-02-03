@@ -19,7 +19,10 @@ export const AbsencesTable = (props: EmployeeState) => {
     const [membersData, setMembersData] = useState<Member[]>([])
     const [absencesData, setAbsencesData] = useState<Absence[]>([])
     const [displayData, setdisplayData] = useState<AbsenceDto[]>([])
+    // shows loading until data loaded
     const [loading, setLoading] = useState(true);    
+
+    // add filter status for table
     const [filters] = useState({
         'type': { value: null, matchMode: FilterMatchMode.CONTAINS },
         'startDate': { value: null, matchMode: FilterMatchMode.CONTAINS },
@@ -27,7 +30,7 @@ export const AbsencesTable = (props: EmployeeState) => {
     });
 
 
-    
+    //Refacter absencesData to display in the table
     useEffect(() => {
         setMembersData(props.members);
         setAbsencesData(props.absences);
@@ -43,6 +46,8 @@ export const AbsencesTable = (props: EmployeeState) => {
             setLoading(true)
         }
     }, [absencesData, membersData, props])
+
+    //Table component template
 
     const statusBodyTemplate = (rowData:AbsenceDto) => {
         return <span className={`customer-badge status-${rowData.status}`}>{rowData.status}</span>;
@@ -84,7 +89,10 @@ export const AbsencesTable = (props: EmployeeState) => {
                 filters={filters}
                 filterDisplay="row"
                 loading={loading}
+                size="normal"
                 emptyMessage="No employees found."
+                paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown" rowsPerPageOptions={[10,25,50]}
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
                 responsiveLayout="scroll">
                     <Column field="name" header="Name"
                     style={{ width: '6vw' }} 
