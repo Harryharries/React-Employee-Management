@@ -1,6 +1,5 @@
 import { useAppSelector } from 'app/hooks';
-import { members } from 'api/api';
-import { absences } from 'api/api';
+import { getAbsences, getMembers} from 'api/api';
 import { AbsencesTable } from 'shared/components/absencesTable';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -15,21 +14,24 @@ export const EmployeeManagement = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-      members.then((res: MemberRespones) => {
-        if (res.message === 'Success') {
-            dispatch(setMembers(res.payload)) 
-        }else{
-            throw new Error("fail to fetch members")
-        }
-      }).catch(alert)
-      absences.then((res: AbsenceRespones) => {
-        if (res.message === 'Success') {
-            dispatch(setAbsences(res.payload)) 
-        }else{
-            throw new Error("fail to fetch absences")
-        }
-      }).catch(alert)
-    })
+      getAbsences().then((res) => {
+        dispatch(setAbsences(res.payload));
+      });
+      // getMembers().then((res: MemberRespones) => {
+      //   if (res.message === 'Success') {
+      //       dispatch(setMembers(res.payload)) 
+      //   }else{
+      //       throw new Error("fail to fetch members")
+      //   }
+      // }).catch(alert)
+      // getAbsences().then((res: AbsenceRespones) => {
+      //   if (res.message === 'Success') {
+      //       dispatch(setAbsences(res.payload)) 
+      //   }else{
+      //       throw new Error("fail to fetch absences")
+      //   }
+      // }).catch(alert)
+    },[dispatch])
     
     return (
         <AbsencesTable absences={absencesData} members={membersData}></AbsencesTable>
