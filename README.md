@@ -38,5 +38,4 @@ npx jest --coverage
 
 ## Technologies
 
-- [Vite](https://vitejs.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
