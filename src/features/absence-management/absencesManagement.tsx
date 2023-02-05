@@ -14,23 +14,20 @@ export const EmployeeManagement = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-      getAbsences().then((res) => {
-        dispatch(setAbsences(res.payload));
-      });
-      // getMembers().then((res: MemberRespones) => {
-      //   if (res.message === 'Success') {
-      //       dispatch(setMembers(res.payload)) 
-      //   }else{
-      //       throw new Error("fail to fetch members")
-      //   }
-      // }).catch(alert)
-      // getAbsences().then((res: AbsenceRespones) => {
-      //   if (res.message === 'Success') {
-      //       dispatch(setAbsences(res.payload)) 
-      //   }else{
-      //       throw new Error("fail to fetch absences")
-      //   }
-      // }).catch(alert)
+      getMembers().then((res: MemberRespones) => {
+        if (res.message === 'Success') {
+            dispatch(setMembers(res.payload)) 
+        }else{
+            throw new Error("fail to fetch members")
+        }
+      }).catch(alert)
+      getAbsences().then((res: AbsenceRespones) => {
+        if (res.message === 'Success') {
+            dispatch(setAbsences(res.payload)) 
+        }else{
+            throw new Error("fail to fetch absences")
+        }
+      }).catch(alert)
     },[dispatch])
     
     return (
