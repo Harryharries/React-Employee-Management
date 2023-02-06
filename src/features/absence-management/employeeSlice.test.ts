@@ -4,7 +4,8 @@ import employeeReducer, {
     setAbsences, 
     setMembers,
     getTotalAbsences,
-    getTotalMembers
+    getTotalMembers,
+    setLoading
 } from "./employeeSlice"
 import absences from "../../../public/absencesTest.json"
 import members from "../../../public/membersTest.json"
@@ -21,8 +22,9 @@ describe("employee reducer", ()=> {
         expect(result).toEqual(
             {    
                 members: [],
-                absences: []
-            })
+                absences: [],
+                loading: false
+            } as EmployeeState)
     })
     it("should reset a new list of Absences in employee state", ()=>{
         const initialState = undefined;
@@ -86,12 +88,30 @@ describe("employee reducer", ()=> {
         expect(result.members[1]).toEqual(memberTest2)
 
     })
+
+    it("should change loading status", ()=>{
+        const initialState = undefined;
+        let action = setLoading(true)
+        let result = employeeReducer(initialState,action);
+
+        expect(result.loading).toBe(true)
+        expect(Object.keys(result.members).length).toEqual(0)
+        expect(Object.keys(result.absences).length).toEqual(0)
+        action = setLoading(false)
+        result = employeeReducer(result,action);
+
+        expect(result.loading).toBe(false)
+        expect(Object.keys(result.members).length).toEqual(0)
+        expect(Object.keys(result.absences).length).toEqual(0)
+
+    })
 })
 
 describe("selectors", () => {
     describe("getTotalMembers", ()=>{
         it("should return 0 with no member items", () => {
             const employees: EmployeeState ={
+                loading: false,
                 members: [] as Member[],
                 absences: [] as Absence[]
             }
@@ -100,6 +120,7 @@ describe("selectors", () => {
         })
         it("should return total members number when there is member items", () => {
             const employees: EmployeeState ={
+                loading: false,
                 members: members as Member[],
                 absences: [] as Absence[]
             }
@@ -110,6 +131,7 @@ describe("selectors", () => {
     describe("getTotalAbsences", ()=>{
         it("should return 0 with no Absence items", () => {
             const employees: EmployeeState ={
+                loading: false,
                 members: [] as Member[],
                 absences: [] as Absence[]
             }
@@ -118,6 +140,7 @@ describe("selectors", () => {
         })
         it("should return total Absences number when there is Absence items", () => {
             const employees: EmployeeState ={
+                loading: false,
                 members: [] as Member[],
                 absences: absences as unknown as Absence[]
             }

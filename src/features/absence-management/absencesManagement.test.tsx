@@ -29,7 +29,6 @@ test("should contain Table with Data", async ()=> {
 })
 
 test("Table should contain filter row and header row", async ()=> {
-
   const state = getStateWithItems([]);
   renderWithContext(<EmployeeManagement />, state);
   const rows = await waitFor(() => screen.findAllByRole("row"));
@@ -41,7 +40,7 @@ test("Table should contain filter row and header row", async ()=> {
 test("Table should show empty state if there are no results", async ()=> {
   const state = getStateWithItems([]);
   renderWithContext(<EmployeeManagement />, state);
-  const noResultsText = await waitFor(() => screen.findByText(/No employees found./i)); 
+  const noResultsText = await waitFor(() => screen.findByText(/Showing 0 to 0 of 0 entries/i)); 
   expect(noResultsText).toBeInTheDocument();
 })
 
