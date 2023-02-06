@@ -4,7 +4,7 @@ import { EmployeeManagement } from './features/absence-management/absencesManage
 
 function App() {
   return (
-    <div className="App">
+    <div className="App px-4">
       <header className="App-header">
         Absences Management
       </header>

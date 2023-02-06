@@ -81,7 +81,7 @@ export const AbsencesTable = (props: EmployeeState) => {
     }
 
     return (
-        <div className="datatable-filter-demo">
+        <div className="datatable-filter-demo px-4">
             <div className="card">
                 <DataTable value={displayData} paginator 
                 className="p-datatable-employee" showGridlines rows={10} 
