@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/React-Employee-Management/static/css/main.5cc84bf8.css",
-    "main.js": "/React-Employee-Management/static/js/main.b26d8eb8.js",
+    "main.js": "/React-Employee-Management/static/js/main.2c6466d5.js",
     "static/media/primeicons.svg": "/React-Employee-Management/static/media/primeicons.e1441b135b3ca9ad643c.svg",
     "static/media/primeicons.eot": "/React-Employee-Management/static/media/primeicons.d44157bdfa026dc877af.eot",
     "static/media/primeicons.woff": "/React-Employee-Management/static/media/primeicons.10d3152104f2208ac82a.woff",
@@ -9,10 +9,10 @@
     "static/media/primeicons.woff2": "/React-Employee-Management/static/media/primeicons.78172950b335ccdb94e2.woff2",
     "index.html": "/React-Employee-Management/index.html",
     "main.5cc84bf8.css.map": "/React-Employee-Management/static/css/main.5cc84bf8.css.map",
-    "main.b26d8eb8.js.map": "/React-Employee-Management/static/js/main.b26d8eb8.js.map"
+    "main.2c6466d5.js.map": "/React-Employee-Management/static/js/main.2c6466d5.js.map"
   },
   "entrypoints": [
     "static/css/main.5cc84bf8.css",
-    "static/js/main.b26d8eb8.js"
+    "static/js/main.2c6466d5.js"
   ]
 }
