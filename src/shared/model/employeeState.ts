@@ -3,5 +3,6 @@ import { Member } from "./member";
 
 export interface EmployeeState {
     members: Member[],
-    absences: Absence[]
+    absences: Absence[],
+    loading:boolean,
   }

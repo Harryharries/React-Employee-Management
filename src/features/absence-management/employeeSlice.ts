@@ -5,6 +5,7 @@ import { EmployeeState } from "shared/model/employeeState";
 import { Member } from "shared/model/member";
 
 const initialState: EmployeeState = {
+    loading: false,
     members: [] as Member[],
     absences: [] as Absence[]
 }
@@ -24,11 +25,14 @@ export const employeeSlice = createSlice({
         },
         setMembers: (state, action) => {
             state.members = action.payload
-        }
+        },
+        setLoading: (state, action) => {
+            state.loading = action.payload
+        },
     }
 })
 
-export const { addAbsence, addMember,setAbsences, setMembers } = employeeSlice.actions;
+export const { addAbsence, addMember,setAbsences, setMembers,setLoading } = employeeSlice.actions;
 export default employeeSlice.reducer;
 
 export const getTotalMembers = createSelector(

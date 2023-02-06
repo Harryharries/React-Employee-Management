@@ -20,7 +20,7 @@ export const AbsencesTable = (props: EmployeeState) => {
     const [absencesData, setAbsencesData] = useState<Absence[]>([])
     const [displayData, setdisplayData] = useState<AbsenceDto[]>([])
     // shows loading until data loaded
-    const [loading, setLoading] = useState(true);    
+    const [loading, setLoading] = useState<boolean>(true);    
 
     // add filter status for table
     const [filters] = useState({
@@ -34,13 +34,12 @@ export const AbsencesTable = (props: EmployeeState) => {
     useEffect(() => {
         setMembersData(props.members);
         setAbsencesData(props.absences);
-
+        setLoading(props.loading);
         absencesData.forEach((e: Absence) => {
             const absencesMember: Member | undefined = membersData.find((m: Member)=>m.userId === e.userId)
             const newStatus: string = e.rejectedAt ? 'Rejected' : e.confirmedAt? 'Confirmed' : 'Requested'
             const newAbsenceDto: AbsenceDto = {...e, name: absencesMember?.name, status: newStatus}
             setdisplayData((oldDisplayArray : AbsenceDto[])=>[...oldDisplayArray, newAbsenceDto])
-            setLoading(false)
         })
         return ()=>{
             setLoading(true)
