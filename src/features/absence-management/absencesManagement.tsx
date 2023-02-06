@@ -37,7 +37,7 @@ export const EmployeeManagement = () => {
     },[dispatch])
     
     return (
-        <AbsencesTable absences={absencesData} members={membersData} loading={true}></AbsencesTable>
+        <AbsencesTable absences={absencesData} members={membersData} loading={loading}></AbsencesTable>
     )
 }
 
